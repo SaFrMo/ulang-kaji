@@ -15,6 +15,8 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: '/index.html',
+                tag: '/tag/index.html',
+                flagged: '/flagged/index.html',
                 ...lessonMap,
             },
         },

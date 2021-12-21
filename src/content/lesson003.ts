@@ -50,5 +50,10 @@ export const lesson003: BM.Lesson = {
             en: 'Alex is a university student',
             tags: ['describing people'],
         },
+        {
+            bm: 'Perkenalkan diri anda',
+            en: 'Introduce yourself',
+            tags: ['vocab'],
+        },
     ],
 }
