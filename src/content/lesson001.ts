@@ -1,5 +1,5 @@
 export const lesson001: BM.Lesson = {
-    id: 0,
+    id: 1,
     name: 'Nombor dan Hari (numbers and days)',
     cards: [
         { bm: 'hari minggu', eng: 'weekend' },

@@ -1,0 +1,16 @@
+.flash-card {
+    box-shadow: 0 0 5px #00000044;
+    border-radius: 5px;
+    max-width: 300px;
+    min-height: 150px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+    .button-wrap {
+        margin-top: 10px;
+    }
+}
