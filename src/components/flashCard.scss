@@ -12,5 +12,13 @@
 
     .button-wrap {
         margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        width: 100%;
+
+        button {
+            padding: 10px;
+        }
     }
 }

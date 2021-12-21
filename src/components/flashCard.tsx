@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref } from 'vue'
+import { computed, defineComponent, PropType, ref } from 'vue'
 import './flashCard.scss'
 
 export const FlashCard = defineComponent({

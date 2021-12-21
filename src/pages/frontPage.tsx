@@ -1,8 +1,15 @@
 import { defineComponent } from 'vue'
 import { lessons } from '../content'
+import { FlashCardPracticeZone } from '../components/flashCardPracticeZone'
 
 export const frontPage = defineComponent({
     setup() {
+        // All cards
+        // ====================
+        const allCards = lessons.flatMap((lesson) => lesson.cards)
+
+        // Render function
+        // ====================
         return () => (
             <section>
                 <h2>Lessons</h2>
@@ -16,6 +23,8 @@ export const frontPage = defineComponent({
                         </li>
                     ))}
                 </ol>
+                {/* practice */}
+                <FlashCardPracticeZone pool={allCards} />
             </section>
         )
     },

@@ -8,19 +8,34 @@ export const FlashCardPracticeZone = defineComponent({
         pool: { required: true, type: Array as PropType<BM.FlashCard[]> },
     },
     setup(props) {
-        const currentIndex = ref(0)
+        const currentIndex = ref(Math.floor(Math.random() * props.pool.length))
         const card = computed(
             () => props.pool[currentIndex.value % props.pool.length]
         )
+
+        const toShow = ref<BM.CardSide>('eng')
 
         return () => (
             <section class="flash-card-practice-zone">
                 <h2>Practice</h2>
 
+                <button
+                    onClick={() =>
+                        (toShow.value = toShow.value === 'eng' ? 'bm' : 'eng')
+                    }
+                >
+                    Toggle BM/Eng
+                </button>
+
                 <FlashCard
-                    onNextCard={() => currentIndex.value++}
+                    onNextCard={() =>
+                        (currentIndex.value = Math.floor(
+                            Math.random() * props.pool.length
+                        ))
+                    }
                     card={card.value}
-                    key={card.value.eng}
+                    key={card.value.eng + toShow.value}
+                    show={toShow.value}
                 />
             </section>
         )
