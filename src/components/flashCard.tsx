@@ -43,7 +43,10 @@ export const FlashCard = defineComponent({
         // ====================
         return () => (
             <div class="flash-card">
-                <div class="content">{props.card[showing.value]}</div>
+                <div class="content">
+                    <p>{props.card[showing.value]}</p>
+                    {props.card.helper && <em>hint: {props.card.helper}</em>}
+                </div>
 
                 {/* Star */}
                 <div class="mark-wrap">

@@ -3,6 +3,7 @@ declare namespace BM {
 
     interface FlashCard {
         bm: string
+        helper?: string
         en: string
         tags?: string[]
     }
