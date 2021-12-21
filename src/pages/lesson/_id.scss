@@ -1,4 +1,6 @@
 section.lesson {
+    text-align: center;
+
     h2,
     h3 {
         text-align: center;
@@ -7,6 +9,7 @@ section.lesson {
         display: grid;
         grid-template-columns: 200px 200px;
         justify-content: center;
+        text-align: left;
 
         dt,
         dd {

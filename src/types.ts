@@ -3,12 +3,14 @@ declare namespace BM {
 
     interface FlashCard {
         bm: string
-        eng: string
+        en: string
+        tags?: string[]
     }
 
     interface Lesson {
+        cards: FlashCard[]
         id: number
         name: string
-        cards: FlashCard[]
+        pdfUrl?: string
     }
 }

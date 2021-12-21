@@ -19,14 +19,6 @@ export const FlashCardPracticeZone = defineComponent({
             <section class="flash-card-practice-zone">
                 <h2>Ulang kaji</h2>
 
-                <button
-                    onClick={() =>
-                        (toShow.value = toShow.value === 'eng' ? 'bm' : 'eng')
-                    }
-                >
-                    BM/Eng
-                </button>
-
                 <FlashCard
                     onNextCard={() =>
                         (currentIndex.value = Math.floor(
@@ -34,9 +26,20 @@ export const FlashCardPracticeZone = defineComponent({
                         ))
                     }
                     card={card.value}
-                    key={card.value.eng + toShow.value}
+                    key={card.value.en + toShow.value}
                     show={toShow.value}
                 />
+
+                <div class="option-wrap">
+                    <button
+                        onClick={() =>
+                            (toShow.value =
+                                toShow.value === 'eng' ? 'bm' : 'eng')
+                        }
+                    >
+                        BM/Eng
+                    </button>
+                </div>
             </section>
         )
     },

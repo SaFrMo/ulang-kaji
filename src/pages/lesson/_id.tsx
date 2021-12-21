@@ -16,12 +16,20 @@ export const lessonPage = defineComponent({
                     Kelas {id}: {lesson.name}
                 </h2>
 
+                {lesson.pdfUrl && (
+                    <div class="download">
+                        <a href={lesson.pdfUrl} target="_blank">
+                            PDF
+                        </a>
+                    </div>
+                )}
+
                 {/* Cards */}
                 <dl>
                     {lesson.cards.map((card) => (
                         <>
                             <dt>{card.bm}</dt>
-                            <dd>{card.eng}</dd>
+                            <dd>{card.en}</dd>
                         </>
                     ))}
                 </dl>
