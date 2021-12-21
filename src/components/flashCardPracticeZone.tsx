@@ -13,7 +13,7 @@ export const FlashCardPracticeZone = defineComponent({
             () => props.pool[currentIndex.value % props.pool.length]
         )
 
-        const toShow = ref<BM.CardSide>('eng')
+        const toShow = ref<BM.CardSide>('en')
 
         return () => (
             <section class="flash-card-practice-zone">
@@ -33,8 +33,7 @@ export const FlashCardPracticeZone = defineComponent({
                 <div class="option-wrap">
                     <button
                         onClick={() =>
-                            (toShow.value =
-                                toShow.value === 'eng' ? 'bm' : 'eng')
+                            (toShow.value = toShow.value === 'en' ? 'bm' : 'en')
                         }
                     >
                         BM/Eng

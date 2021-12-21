@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
-import { lessons } from '../content'
+import { allTags, lessons } from '../content'
 import { FlashCardPracticeZone } from '../components/flashCardPracticeZone'
+import { camelCase } from 'lodash'
 
 export const frontPage = defineComponent({
     setup() {
@@ -12,10 +13,10 @@ export const frontPage = defineComponent({
         // ====================
         return () => (
             <section>
+                {/* Classes */}
                 <h2>Kelas</h2>
-                {/* list all lesson pages */}
                 <ol>
-                    {lessons.map((lesson, i) => (
+                    {lessons.map((lesson) => (
                         <li class="lesson">
                             <router-link to={`/lesson/${lesson.id}`}>
                                 {lesson.name}
@@ -23,7 +24,20 @@ export const frontPage = defineComponent({
                         </li>
                     ))}
                 </ol>
-                {/* practice */}
+
+                {/* Tags */}
+                <h2>Tags</h2>
+                <ul>
+                    {allTags.map((tag) => (
+                        <li>
+                            <router-link to={`/tag?tag=${tag}`}>
+                                {tag}
+                            </router-link>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Practice */}
                 <FlashCardPracticeZone pool={allCards} />
             </section>
         )

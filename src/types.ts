@@ -1,5 +1,5 @@
 declare namespace BM {
-    type CardSide = 'bm' | 'eng'
+    type CardSide = 'bm' | 'en'
 
     interface FlashCard {
         bm: string

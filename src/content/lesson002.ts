@@ -43,6 +43,6 @@ export const lesson002: BM.Lesson = {
         { bm: 'main', en: 'play', tags: ['vocab'] },
         { bm: 'bola sepak', en: 'football', tags: ['vocab'] },
         { bm: 'sediap hari', en: 'every day', tags: ['vocab'] },
-        { bm: 'Ini siapa?', en: 'Who is this?', tags: ['vocab'] },
+        { bm: 'Ini siapa?', en: 'Who is this?', tags: ['q/a'] },
     ],
 }

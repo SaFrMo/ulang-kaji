@@ -9,7 +9,7 @@ export const FlashCard = defineComponent({
     },
     emits: ['nextCard'],
     setup(props, context) {
-        const showing = ref<BM.CardSide>(props.show ?? 'eng')
+        const showing = ref<BM.CardSide>(props.show ?? 'en')
 
         return () => (
             <div class="flash-card">
@@ -20,7 +20,7 @@ export const FlashCard = defineComponent({
                     <button
                         onClick={() =>
                             (showing.value =
-                                showing.value === 'eng' ? 'bm' : 'eng')
+                                showing.value === 'en' ? 'bm' : 'en')
                         }
                     >
                         Flip
