@@ -12,7 +12,9 @@ export const lessonPage = defineComponent({
 
         return () => (
             <section class="lesson">
-                <h2>Lesson {id}</h2>
+                <h2>
+                    Kelas {id}: {lesson.name}
+                </h2>
 
                 {/* Cards */}
                 <dl>

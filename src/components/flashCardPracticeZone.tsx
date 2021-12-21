@@ -17,14 +17,14 @@ export const FlashCardPracticeZone = defineComponent({
 
         return () => (
             <section class="flash-card-practice-zone">
-                <h2>Practice</h2>
+                <h2>Ulang kaji</h2>
 
                 <button
                     onClick={() =>
                         (toShow.value = toShow.value === 'eng' ? 'bm' : 'eng')
                     }
                 >
-                    Toggle BM/Eng
+                    BM/Eng
                 </button>
 
                 <FlashCard

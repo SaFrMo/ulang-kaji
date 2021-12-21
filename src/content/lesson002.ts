@@ -1,6 +1,6 @@
 export const lesson002: BM.Lesson = {
     id: 2,
-    name: 'Keluarga Saya (my family)',
+    name: 'Keluarga Saya',
     cards: [
         { bm: 'perempuan', eng: 'girl' },
         { bm: 'lelaki', eng: 'boy' },

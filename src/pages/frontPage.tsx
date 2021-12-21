@@ -12,7 +12,7 @@ export const frontPage = defineComponent({
         // ====================
         return () => (
             <section>
-                <h2>Lessons</h2>
+                <h2>Kelas</h2>
                 {/* list all lesson pages */}
                 <ol>
                     {lessons.map((lesson, i) => (
