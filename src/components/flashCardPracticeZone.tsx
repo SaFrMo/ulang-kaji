@@ -20,11 +20,14 @@ export const FlashCardPracticeZone = defineComponent({
                 <h2>Ulang kaji</h2>
 
                 <FlashCard
-                    onNextCard={() =>
-                        (currentIndex.value = Math.floor(
-                            Math.random() * props.pool.length
-                        ))
-                    }
+                    onNextCard={() => {
+                        let next: number
+                        do {
+                            next = Math.floor(Math.random() * props.pool.length)
+                        } while (currentIndex.value === next)
+
+                        currentIndex.value = next
+                    }}
                     card={card.value}
                     key={card.value.en + toShow.value}
                     show={toShow.value}

@@ -13,4 +13,8 @@ declare namespace BM {
         name: string
         pdfUrl?: string
     }
+
+    interface LocalStorageConfig {
+        flaggedCards: string[]
+    }
 }

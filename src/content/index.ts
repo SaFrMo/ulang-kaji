@@ -1,3 +1,4 @@
+import { LOCAL_CONFIG_KEY } from '../utils'
 import { lesson001 } from './lesson001'
 import { lesson002 } from './lesson002'
 import { lesson003 } from './lesson003'
@@ -13,3 +14,12 @@ export const allTags = [
 ]
 
 export const allCards = lessons.flatMap((lesson) => lesson.cards)
+
+export const flaggedCards = () =>
+    allCards.filter((card) =>
+        (
+            JSON.parse(
+                localStorage.getItem(LOCAL_CONFIG_KEY)!
+            ) as BM.LocalStorageConfig
+        ).flaggedCards.includes(card.bm)
+    )
