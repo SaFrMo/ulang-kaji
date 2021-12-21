@@ -5,7 +5,11 @@ export default defineComponent({
     setup() {
         return () => (
             <main class="app">
-                <h1>Bahasa Melayu Practice</h1>
+                <h1>
+                    <router-link to="/">Bahasa Melayu Practice</router-link>
+                </h1>
+
+                <router-view />
             </main>
         )
     },

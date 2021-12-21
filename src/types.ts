@@ -1,7 +1,7 @@
 declare namespace BM {
     interface FlashCard {
-        front: string
-        back: string
+        bm: string
+        eng: string
     }
 
     interface Lesson {

@@ -1,7 +1,3 @@
-const lesson1: BM.Lesson = {
-    id: 0,
-    name: 'Nombor dan Hari (numbers and days)',
-    cards: [],
-}
+import { lesson001 } from './lesson001'
 
-export const lessons: BM.Lesson[] = [lesson1]
+export const lessons: BM.Lesson[] = [lesson001]
