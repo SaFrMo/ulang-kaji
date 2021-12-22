@@ -15,6 +15,10 @@ export const FlashCardPracticeZone = defineComponent({
 
         const toShow = ref<BM.CardSide>('en')
 
+        const displayedIndexes = ref<number[]>([currentIndex.value])
+
+        // Render function
+        // ====================
         return () => (
             <section class="flash-card-practice-zone">
                 <h2>Ulang kaji</h2>
@@ -24,8 +28,18 @@ export const FlashCardPracticeZone = defineComponent({
                         let next: number
                         do {
                             next = Math.floor(Math.random() * props.pool.length)
-                        } while (currentIndex.value === next)
+                        } while (
+                            currentIndex.value === next ||
+                            displayedIndexes.value.includes(next)
+                        )
 
+                        displayedIndexes.value.push(next)
+                        // clear if all complete
+                        if (
+                            displayedIndexes.value.length >= props.pool.length
+                        ) {
+                            displayedIndexes.value = []
+                        }
                         currentIndex.value = next
                     }}
                     card={card.value}
