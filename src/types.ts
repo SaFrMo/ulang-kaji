@@ -1,6 +1,12 @@
 declare namespace BM {
     type CardSide = 'bm' | 'en'
 
+    interface CardStat {
+        ms: string
+        correct: boolean
+        time: number
+    }
+
     interface FlashCard {
         bm: string
         helper?: string
@@ -16,6 +22,7 @@ declare namespace BM {
     }
 
     interface LocalStorageConfig {
+        cardStats: CardStat[]
         flaggedCards: string[]
     }
 }

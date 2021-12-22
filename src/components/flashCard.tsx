@@ -1,7 +1,15 @@
-import { defineComponent, PropType, ref, watch } from 'vue'
+import {
+    defineComponent,
+    onBeforeUnmount,
+    onMounted,
+    PropType,
+    ref,
+    watch,
+} from 'vue'
 import './flashCard.scss'
 import { StarSvg } from './svg/star'
-import { LOCAL_CONFIG_KEY } from '../utils'
+import { LOCAL_CONFIG_KEY, saveProfile, useProfile } from '../utils'
+import { sortBy } from 'lodash'
 
 export const FlashCard = defineComponent({
     name: 'FlashCard',
@@ -13,6 +21,7 @@ export const FlashCard = defineComponent({
     setup(props, context) {
         const showing = ref<BM.CardSide>(props.show ?? 'en')
         const cardId = props.card.bm
+        const profile = useProfile()
 
         // Flagging
         // ====================
@@ -38,6 +47,59 @@ export const FlashCard = defineComponent({
                 localStorage.setItem(LOCAL_CONFIG_KEY, JSON.stringify(curr))
             }
         )
+
+        // Mark correct/incorrect
+        // ====================
+        const gotCorrectAnswer = (correct: boolean) => {
+            profile.cardStats.push({
+                correct,
+                ms: props.card.bm,
+                time: Date.now(),
+            })
+            saveProfile(profile)
+        }
+
+        // Practice flow
+        // ====================
+        let flowFlipped = false
+        const handleKeydown = (evt: KeyboardEvent) => {
+            // space: flip
+            if (evt.key === ' ') {
+                if (!flowFlipped) {
+                    flowFlipped = true
+                    showing.value = showing.value === 'en' ? 'bm' : 'en'
+                }
+            }
+            // 1: correct
+            else if (evt.key === '1') {
+                gotCorrectAnswer(true)
+                context.emit('nextCard')
+            } else if (evt.key === '2') {
+                // 2: incorrect
+                gotCorrectAnswer(false)
+                context.emit('nextCard')
+            }
+        }
+        onMounted(() => {
+            window.addEventListener('keydown', handleKeydown)
+        })
+        onBeforeUnmount(() => {
+            window.removeEventListener('keydown', handleKeydown)
+        })
+
+        // Stats
+        // ====================
+        const totalCompleted = profile.cardStats.filter(
+            (stat) => stat.ms === props.card.bm
+        )
+        const completedCorrect = totalCompleted.filter((stat) => stat.correct)
+        const fiveRecent = sortBy(totalCompleted, 'time')
+            .reverse()
+            .splice(0, 5)
+            .reduce((acc, curr) => {
+                if (curr.correct) acc++
+                return acc
+            }, 0)
 
         // Render function
         // ====================
@@ -75,6 +137,31 @@ export const FlashCard = defineComponent({
                     <button onClick={() => context.emit('nextCard')}>
                         Next card
                     </button>
+
+                    {/* Stats */}
+                    <p>
+                        <span>
+                            {completedCorrect.length} / {totalCompleted.length}
+                        </span>
+                        <br />
+                        <span>
+                            Five latest: {fiveRecent} /{' '}
+                            {Math.min(totalCompleted.length, 5)}
+                        </span>
+                    </p>
+
+                    {/* Practice flow */}
+                    <p>
+                        <strong>Practice flow:</strong>
+                        <br />
+                        <em>[space]: flip</em>
+                        <br />
+                        <em>
+                            [1]: correct
+                            <br />
+                            [2]: incorrect
+                        </em>
+                    </p>
                 </div>
             </div>
         )

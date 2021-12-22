@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, provide } from 'vue'
 import './app.scss'
 import { LOCAL_CONFIG_KEY } from './utils'
 
@@ -10,10 +10,21 @@ export default defineComponent({
             localStorage.setItem(
                 LOCAL_CONFIG_KEY,
                 JSON.stringify({
+                    cardStats: [],
                     flaggedCards: [],
                 } as BM.LocalStorageConfig)
             )
         }
+
+        const defaultProfile: BM.LocalStorageConfig = {
+            cardStats: [],
+            flaggedCards: [],
+        }
+        const profile = {
+            ...defaultProfile,
+            ...JSON.parse(localStorage.getItem(LOCAL_CONFIG_KEY)!),
+        }
+        provide('profile', profile)
 
         // Render function
         // ====================
