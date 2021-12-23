@@ -6,6 +6,7 @@ import { frontPage } from './pages/frontPage'
 import { lessonPage } from './pages/lesson/_id'
 import { TagPage } from './pages/tag'
 import { FlaggedPractice } from './pages/flagged'
+import { LowScoring } from './pages/lowScore'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -14,6 +15,7 @@ const router = createRouter({
         { path: '/lesson/:id', component: lessonPage },
         { path: '/tag', component: TagPage },
         { path: '/flagged', component: FlaggedPractice },
+        { path: '/low-score', component: LowScoring },
     ],
 })
 

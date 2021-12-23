@@ -40,6 +40,9 @@ export const frontPage = defineComponent({
                 {/* Flagged */}
                 <h2>Misc</h2>
                 <router-link to="/flagged">Flagged cards</router-link>
+                <br />
+                <router-link to="/low-score">Recent low scores</router-link>
+                <br />
 
                 {/* Practice */}
                 <FlashCardPracticeZone pool={allCards} />

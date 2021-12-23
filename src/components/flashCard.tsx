@@ -8,8 +8,7 @@ import {
 } from 'vue'
 import './flashCard.scss'
 import { StarSvg } from './svg/star'
-import { LOCAL_CONFIG_KEY, saveProfile, useProfile } from '../utils'
-import { sortBy } from 'lodash'
+import { cardStats, LOCAL_CONFIG_KEY, saveProfile, useProfile } from '../utils'
 
 export const FlashCard = defineComponent({
     name: 'FlashCard',
@@ -89,17 +88,21 @@ export const FlashCard = defineComponent({
 
         // Stats
         // ====================
-        const totalCompleted = profile.cardStats.filter(
-            (stat) => stat.ms === props.card.bm
+        const { totalCompleted, completedCorrect, fiveRecent } = cardStats(
+            props.card.bm,
+            profile
         )
-        const completedCorrect = totalCompleted.filter((stat) => stat.correct)
-        const fiveRecent = sortBy(totalCompleted, 'time')
-            .reverse()
-            .splice(0, 5)
-            .reduce((acc, curr) => {
-                if (curr.correct) acc++
-                return acc
-            }, 0)
+        // const totalCompleted = profile.cardStats.filter(
+        //     (stat) => stat.ms === props.card.bm
+        // )
+        // const completedCorrect = totalCompleted.filter((stat) => stat.correct)
+        // const fiveRecent = sortBy(totalCompleted, 'time')
+        //     .reverse()
+        //     .splice(0, 5)
+        //     .reduce((acc, curr) => {
+        //         if (curr.correct) acc++
+        //         return acc
+        //     }, 0)
 
         // Render function
         // ====================

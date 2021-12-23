@@ -17,6 +17,7 @@ export default defineConfig({
                 main: '/index.html',
                 tag: '/tag/index.html',
                 flagged: '/flagged/index.html',
+                lowScore: '/low-score/index.html',
                 ...lessonMap,
             },
         },
