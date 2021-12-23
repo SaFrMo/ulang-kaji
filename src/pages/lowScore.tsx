@@ -18,7 +18,7 @@ export const LowScoring = defineComponent({
         })
 
         return () => (
-            <main class="flagged">
+            <main class="low-score">
                 {pool.value.length ? (
                     <FlashCardPracticeZone pool={pool.value} />
                 ) : (
