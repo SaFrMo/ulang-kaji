@@ -47,6 +47,10 @@ export const FlashCardPracticeZone = defineComponent({
                     show={toShow.value}
                 />
 
+                <p>
+                    Card {displayedIndexes.value.length} / {props.pool.length}
+                </p>
+
                 <div class="option-wrap">
                     <button
                         onClick={() =>
