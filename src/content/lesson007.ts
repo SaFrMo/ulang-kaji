@@ -20,7 +20,7 @@ export const lesson007: BM.Lesson = {
         },
         {
             bm: 'Terus mandi',
-            en: 'Shower',
+            en: 'Go and shower',
             tags: ['describing people'],
         },
         {
