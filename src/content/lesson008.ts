@@ -113,5 +113,10 @@ export const lesson008: BM.Lesson = {
             en: 'fast',
             tags: ['vocab'],
         },
+        {
+            bm: 'ayuh ke ___',
+            en: "let's go to ___",
+            tags: ['vocab'],
+        },
     ],
 }
