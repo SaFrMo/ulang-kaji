@@ -12,8 +12,12 @@ export const LowScoring = defineComponent({
         onMounted(() => {
             pool.value = allCards.filter((card) => {
                 const stats = cardStats(card.bm, profile)
-                // practice anything we have fewer than 4/5 recent correct answers on
-                return stats.fiveRecent < 4
+                stats.completedCorrect.sort((a, b) => b.time - a.time)
+                // practice anything we got less than 2 right answers on, total or recently
+                return (
+                    stats.completedCorrect.length < 2 ||
+                    stats.completedCorrect.slice(0, 2).find((v) => !v.correct)
+                )
             })
         })
 
