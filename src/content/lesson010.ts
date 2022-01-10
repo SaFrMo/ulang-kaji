@@ -1,7 +1,7 @@
 export const lesson010: BM.Lesson = {
     id: 10,
     name: 'Emosi saya',
-    pdfUrl: '/pdf/emosi-raya.pdf',
+    pdfUrl: '/pdf/emosi-saya.pdf',
     cards: [
         {
             bm: 'Awak sihat?',
@@ -80,7 +80,7 @@ export const lesson010: BM.Lesson = {
         },
         {
             bm: 'takut',
-            en: 'scared',
+            en: 'scared (fearful)',
             tags: ['vocab'],
         },
         {
@@ -95,7 +95,7 @@ export const lesson010: BM.Lesson = {
         },
         {
             bm: 'tekejut',
-            en: 'scared',
+            en: 'scared (startled)',
             tags: ['vocab'],
         },
         {
