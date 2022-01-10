@@ -8,6 +8,7 @@ import { lesson006 } from './lesson006'
 import { lesson007 } from './lesson007'
 import { lesson008 } from './lesson008'
 import { lesson009 } from './lesson009'
+import { lesson010 } from './lesson010'
 
 export const lessons: BM.Lesson[] = [
     lesson001,
@@ -19,6 +20,7 @@ export const lessons: BM.Lesson[] = [
     lesson007,
     lesson008,
     lesson009,
+    lesson010,
 ]
 
 export const allTags = [
