@@ -1,7 +1,7 @@
 export const lesson011: BM.Lesson = {
     id: 1,
     name: 'Makanan',
-    pdfUrl: '/pdf/emosi-saya.pdf',
+    pdfUrl: '/pdf/makanan.pdf',
     cards: [
         {
             bm: 'sarapan pagi',
