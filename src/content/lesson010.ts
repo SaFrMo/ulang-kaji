@@ -9,8 +9,8 @@ export const lesson010: BM.Lesson = {
             tags: ['vocab'],
         },
         {
-            bm: 'Saya sihat?',
-            en: "I'm good?",
+            bm: 'Saya sihat',
+            en: "I'm good",
             tags: ['vocab'],
         },
         {
