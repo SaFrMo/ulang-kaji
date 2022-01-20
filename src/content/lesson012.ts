@@ -89,7 +89,7 @@ export const lesson012: BM.Lesson = {
             tags: ['vocab'],
         },
         {
-            bm: 'Carl pergi ke sekolah walaupun di laur hujan',
+            bm: 'Carl pergi ke sekolah walaupun di luar hujan',
             en: 'Carl goes to school even though it is raining outside',
             tags: ['vocab'],
         },
