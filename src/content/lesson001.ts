@@ -2,7 +2,7 @@ export const lesson001: BM.Lesson = {
     id: 1,
     name: 'Nombor dan Hari',
     cards: [
-        { bm: 'hari minggu', en: 'weekend', tags: ['vocab'] },
+        { bm: 'hujung minggu', en: 'weekend', tags: ['vocab'] },
         { bm: 'hari bulan', en: 'date', tags: ['vocab'] },
         { bm: '-ratus', en: 'hundred' },
         { bm: '-ribus', en: 'thousand' },
